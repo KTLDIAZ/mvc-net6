@@ -1,0 +1,55 @@
+﻿@model MVC_CodeFirst.Models.ViewModels.EmployeeViewModel
+
+<div class="row justify-content-center mt-5">
+    <div class="card col-md-5">
+        <div class="card-body">
+            <h1 class="text-center">Eliminar empleado</h1>
+            <form asp-action="Delete" >
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="EmployeeId" type="number" class="visually-hidden">
+                <div class="mb-3">
+                    <label asp-for="UserId" class="form-label"></label>
+                    <select asp-for="UserId" asp-items="ViewBag.Users" class="form-control">
+                        <option value="">Escgoe una usuario</option>
+                    </select>
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Charge" class="form-label">Cargo/Puesto</label>
+                    <input asp-for="Charge" type="text" class="form-control">
+                    <span asp-validation-for="Charge" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Department" class="form-label">Departamento</label>
+                    <input asp-for="Department" type="text" class="form-control">
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Salary" class="form-label">Salario</label>
+                    <input asp-for="Salary" type="number" class="form-control">
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="StartedAt" class="form-label">Fecha de inicio</label>
+                    <input asp-for="StartedAt" type="datetime-local" class="form-control">
+                    <span asp-validation-for="StartedAt" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="FinishTime" class="form-label">Fecha de inicio</label>
+                    <input asp-for="FinishTime" type="datetime-local" class="form-control">
+                    <span asp-validation-for="FinishTime" class="text-danger"></span>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-primary" type="submit">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,49 @@
+﻿@model MVC_CodeFirst.Models.ViewModels.UserViewModel
+
+<div class="row justify-content-center mt-5">
+    <div class="card col-md-5">
+        <div class="card-body">
+            <h1 class="text-center">@ViewBag.title usuario</h1>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Fullname" class="form-label">Nombre completo</label>
+                    <input asp-for="Fullname" type="text" class="form-control">
+                    <span asp-validation-for="Fullname" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Correo electrónico</label>
+                    <input asp-for="Email" type="email" class="form-control">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Address" class="form-label">Dirección</label>
+                    <input asp-for="Address" type="text" class="form-control">
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber" class="form-label">Número de telefono</label>
+                    <input asp-for="PhoneNumber" type="text" class="form-control">
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CivilStatus" class="form-label"></label>
+                    <select asp-for="CivilStatus" asp-items="ViewBag.CivilStatus" class="form-control">
+                        <option value="">Escgoe una opción</option>
+                    </select>
+                    <span asp-validation-for="CivilStatus" class="text-danger"></span>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-primary" type="submit">@ViewBag.title</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

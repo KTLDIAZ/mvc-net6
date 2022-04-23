@@ -1,0 +1,32 @@
+﻿@model List<MVC_CodeFirst.Domain.Employee>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>Nombre completo</th>
+        <th>Departamento</th>
+        <th>Puesto/Cargo</th>
+        <th>Salario</th>
+        <th>Fecha de inicio</th>
+        <th>Fecha de finalización</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@employee.User.Fullname</td>
+            <td>@employee.Department</td>
+            <td>@employee.Charge</td>
+            <td>@employee.Salary</td>
+            <td>@employee.StartedAt</td>
+            <td>@employee.FinishTime</td>
+            <td>
+                <a class="btn btn-primary" asp-controller="Employee" asp-action="Edit" asp-route-employeeId="@employee.EmployeeId">Editar</a>
+                <a class="btn btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-employeeId="@employee.EmployeeId">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
